@@ -40,8 +40,9 @@ public class FundraiserGoalTest {
         update fundraisers;
         fundraisers = [SELECT Goal__c, AmountRaised__c FROM Fundraiser__c];
 
-        System.assertEquals(6600, fundraisers[0].Goal__c);
-        System.assertEquals(6600, fundraisers[18].Goal__c);
+        for(Fundraiser__c fundraiser: fundraisers) {
+            System.assertEquals(6600, fundraiser.Goal__c);
+        }
     }
 
 }
